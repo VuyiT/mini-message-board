@@ -19,3 +19,5 @@ router.get("/", (req, res) => {
         title: "Messages",
         messages });
 });
+
+module.exports = router;
