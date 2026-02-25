@@ -10,5 +10,18 @@ app.listen(PORT, (err) => {
 });
 
 app.get("/", (req, res) => {
-    res.send("I am listening!");
+    const messages = [
+        {
+          text: "Hi there!",
+          user: "Amando",
+          added: new Date()
+        },
+        {
+          text: "Hello World!",
+          user: "Charles",
+          added: new Date()
+        }
+    ];
+
+    res.render("index.ejs", { messages });
 });
