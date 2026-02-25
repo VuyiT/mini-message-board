@@ -13,5 +13,6 @@ app.listen(PORT, (err) => {
     console.log(`listening for requests on port ${PORT}`);
 });
 
+app.use(express.urlencoded({ extended: true }));
 app.use("/", indexRouter);
 app.use("/new", newMessageRouter);
