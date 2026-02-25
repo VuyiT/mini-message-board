@@ -23,5 +23,7 @@ app.get("/", (req, res) => {
         }
     ];
 
-    res.render("index.ejs", { messages });
+    res.render("index.ejs", {
+        title: "Messages",
+        messages });
 });
