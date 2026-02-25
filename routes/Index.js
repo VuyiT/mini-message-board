@@ -1,7 +1,8 @@
-const express = require("express");
-const router = express.Router();
+const { Router } = require("express");
+const indexRouter = Router();
 
-router.get("/", (req, res) => {
+indexRouter.route("/")
+ .get((req, res) => {
     const messages = [
         {
           text: "Hi there!",
@@ -18,6 +19,8 @@ router.get("/", (req, res) => {
     res.render("index", {
         title: "Messages",
         messages });
-});
-
-module.exports = router;
+  })
+  .post((req, res) => {
+    console.log(req.body);
+  });
+module.exports = indexRouter;
