@@ -14,5 +14,5 @@ app.listen(PORT, (err) => {
 });
 
 app.use(express.urlencoded({ extended: true }));
-app.use("/", indexRouter);
 app.use("/new", newMessageRouter);
+app.use("/", indexRouter);
