@@ -16,3 +16,7 @@ app.listen(PORT, (err) => {
 app.use(express.urlencoded({ extended: true }));
 app.use("/new", newMessageRouter);
 app.use("/", indexRouter);
+app.use((err, req, res, next) => {
+    console.log(err);
+    res.status(500).send(err);
+})
