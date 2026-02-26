@@ -27,4 +27,25 @@ indexRouter.route("/")
     });
     res.redirect("/");
   });
+
+async function getMessageById(messageId) {
+    return messages.find(message => message.id === messageId);
+};
+
+async function getMessageByIdReqRes(req, res) {
+    const { messageId } = req.params;
+    const message = await getMessageById(messageId);
+
+    if (!message) {
+        res.status(404).send("Message not found");
+        return;
+    }
+    res.render("details", {
+        title: "Message Details",
+        message: message
+    });
+};
+
+indexRouter.get("/:messageId", getMessageByIdReqRes);
+
 module.exports = indexRouter;
